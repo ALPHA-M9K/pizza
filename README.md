@@ -57,7 +57,7 @@ RestaurantPizza: Represents the association between a restaurant and a pizza, in
 Implement user authentication and authorization
 Add more complex querying capabilities (e.g., finding pizzas by ingredient)
 Incorporate a review system for pizzas and restaurants
-Develop a frontend interface for easier interaction with the API
+Develop a frontend interface for easier interaction with the API.
 
 
 ## Contributing

@@ -80,5 +80,5 @@ api.add_resource(RestaurantByID, '/restaurants/<int:id>')
 api.add_resource(Pizzas, '/pizzas')
 api.add_resource(RestaurantPizzas, '/restaurant_pizzas')
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(port=5555, debug=True)  # Run the app in debug mode on port 5555

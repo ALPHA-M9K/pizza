@@ -97,4 +97,4 @@ with app.app_context():
     db.session.add_all(restaurantPizzas)  # Add all associations to the session
     db.session.commit()  # Commit changes to the database
 
-    print("Seeding done!")  # Indicate that seeding is complete
+    print('Seeding done!')  # Indicate that seeding is complete
