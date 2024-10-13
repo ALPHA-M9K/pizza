@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 
-from app import app
-from models import db, Restaurant, Pizza, RestaurantPizza
+from app import app  # Import the Flask app
+from models import db, Restaurant, Pizza, RestaurantPizza  # Import database and models
 
 with app.app_context():
 
     # This will delete any existing rows
     # so you can run the seed file multiple times without having duplicate entries in your database
     print("Deleting data...")
-    Pizza.query.delete()
-    Restaurant.query.delete()
-    RestaurantPizza.query.delete()
+    Pizza.query.delete()  # Delete all pizzas
+    Restaurant.query.delete()  # Delete all restaurants
+    RestaurantPizza.query.delete()  # Delete all restaurant-pizza associations
 
     print("Creating restaurants...")
     restaurants = [
@@ -85,16 +85,16 @@ with app.app_context():
     ]
 
     print("Creating RestaurantPizza...")
-    restaurantPizzas = []
+    restaurantPizzas = []  # List to hold restaurant-pizza associations
     prices = list(range(1, 31))  # Prices from $1 to $30
 
     for i in range(30):
-        pr = RestaurantPizza(restaurant=restaurants[i], pizza=pizzas[i], price=prices[i])
-        restaurantPizzas.append(pr)
+        pr = RestaurantPizza(restaurant=restaurants[i], pizza=pizzas[i], price=prices[i])  # Create association
+        restaurantPizzas.append(pr)  # Add to the list
 
-    db.session.add_all(restaurants)
-    db.session.add_all(pizzas)
-    db.session.add_all(restaurantPizzas)
-    db.session.commit()
+    db.session.add_all(restaurants)  # Add all restaurants to the session
+    db.session.add_all(pizzas)  # Add all pizzas to the session
+    db.session.add_all(restaurantPizzas)  # Add all associations to the session
+    db.session.commit()  # Commit changes to the database
 
-    print("Seeding done!")
+    print("Seeding done!")  # Indicate that seeding is complete
